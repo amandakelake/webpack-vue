@@ -1,0 +1,9 @@
+{
+  "editor.formatOnSave": true,
+  "files.associations": {
+      "*.vue": "vue"
+  },
+  "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+  }
+}
