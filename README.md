@@ -150,20 +150,28 @@ yarn add -D webpack-merge cross-env webpack-dev-server html-webpack-plugin
 [HtmlWebpackPlugin | webpack](https://webpack.js.org/plugins/html-webpack-plugin/#installation)
 [GitHub - html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)
 
-按照国际惯例，我们先把webpack配置分成三份，在`config`目录下添加下面下面三份配置文件，用`cross-env`辅助区分环境
-	* `webpack.common.js`
-	* `webpack.dev.js`
-	* `webpack.prod.js`
+按照国际惯例，我们先把webpack配置分成三份，在`config`目录下添加下面下面三份配置文件
+* `webpack.common.js`
+* `webpack.dev.js`
+* `webpack.prod.js`
 
-然后在`package.json`里面配置一下命令
+用`cross-env`辅助区分环境，使用方法像这样，在`package.json`的`script`下设置
 ```json
 "scripts": {
-	"dev": "cross-env NODE_ENV=development
- webpack-dev-server --progress --config config/webpack.dev.js"
+  "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --config config/webpack.dev.js",
+  "build": "cross-env NODE_ENV=production webpack --progress --config config/webpack.prod.js",
+  "start": "node ./server.js"
 },
 ```
 
-下面写完配置后，然后一发 `yarn dev`，项目就能跑起来了
+`cross-env NODE_ENV=development`设置变量，然后在脚本或者node环境下能通过`process.env.NODE_ENV`获取环境变量，所以我们会在`webpack.common.js`里面配置如下
+```js
+module.exports = {
+    mode: process.env.NODE_ENV,
+}
+```
+
+等下下面写完配置后，然后一发 `yarn dev`，项目应该就能跑起来了
 
 ### 4.2 处理vue单文件
 [起步 | Vue Loader](https://vue-loader.vuejs.org/zh/guide/)
@@ -358,6 +366,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const resolve = (dir) => path.join(__dirname, '..', dir);
 
 module.exports = {
+    mode: process.env.NODE_ENV,
     // 入口
     entry: {
         app: resolve('src/index.js'),
