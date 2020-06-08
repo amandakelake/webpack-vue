@@ -1,5 +1,7 @@
 # webpack+vue 从零开始搭建开发环境
 
+> 完整代码在 [development](https://github.com/amandakelake/webpack-vue/tree/development) 分支
+
 ## 一、repo+npm+git 初始化+目录结构
 
 ```bash

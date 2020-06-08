@@ -1,6 +1,6 @@
 # webpack+vue 生产环境
 
-#front-end/前端工程化/webpack/应用
+> 完整代码在 [production](https://github.com/amandakelake/webpack-vue/tree/production) 分支
 
 接着上篇继续搞起 [webpack+vue 开发环境](https://github.com/amandakelake/webpack-vue/blob/master/README.md)
 
