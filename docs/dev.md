@@ -517,6 +517,8 @@ touch .editorconfig .eslintrc .eslintignore .prettierrc .prettierignore
 -   [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier) 调用 prettier 规则对代码风格进行检查，让格式化后结果完全符合 Prettier 的要求
 -   [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) 如果 eslint 和 prettier 的格式化规则冲突了，关闭 eslint 的这条规则，以 prettier 的为准
 
+还有一个[eslint-loader](https://github.com/webpack-contrib/eslint-loader)，webpack 在打包时进行检测，属于强制型，如果规则配置的比较强，比如一个分号或者双引号的问题直接打包失败，会让部分同学非常抓狂，所以我们下面只是配置规则，让编辑器进行报错就好了（不喜欢的也可以关掉），开发自行校验，也暂时不加 git precommit 钩子来强制检测，有这部分需要的同学可以自行搜索添加
+
 `.editorconfig`文件
 
 ```

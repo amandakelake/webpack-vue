@@ -109,4 +109,7 @@ module.exports = {
         }),
         new OptimizeCSSAssetsPlugin(),
     ],
+    stats: {
+        children: false, // 避免过多子信息
+    },
 };
